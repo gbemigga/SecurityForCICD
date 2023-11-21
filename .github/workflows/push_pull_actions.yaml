@@ -10,7 +10,7 @@ on:
 env: 
   TERRAFORM_VERSION: 1.3.5
   # TERRAGRUNT_VERSION: 0.40.0
-  TERRAFORM_WORKING_DIR: './'
+  TERRAFORM_WORKING_DIR: './infrastructure'
 permissions:
   contents: write       # write permissions are needed in order to commit changes back to the branches/
   issues: write         # write permissions are needed in order to create comments
@@ -26,7 +26,7 @@ jobs:
     with:
       # Enabling Comments will add a comment to a PR, but these do no exist in Push events and will throw an error.
       ENABLE_COMMENTS: true
-      WORKING_DIRECTORY: './'
+      WORKING_DIRECTORY: './infrastructure'
   plan:
     name: "Terraform Init,Validates and Plan"
     needs: [ kics ]
